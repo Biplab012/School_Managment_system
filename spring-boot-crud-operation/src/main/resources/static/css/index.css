@@ -1,0 +1,114 @@
+@charset "ISO-8859-1";
+  .slider {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: opacity 1s ease-in-out;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+#slide2 {
+    opacity: 0;
+}
+
+#slide3 {
+    opacity: 0;
+}
+/* Existing styles remain the same */
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+}
+
+.content h2 {
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.welcome
+{
+
+   display:flex;
+   position:absolute;
+     flex-wrap: nowrap;
+    
+
+
+}
+
+.box 
+{
+width:50%;
+
+}
+.box img
+{
+ 
+ width:90%;
+
+}
+img {
+     border-radius: 20px; /* Adjust the value as needed */
+  }
+.box2
+{
+width:50%;
+
+
+}
+ .flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.flex-container > div {
+  width: 50%;
+  padding-left:100px;
+  padding-top:20px;
+  padding-right:0px;
+}
+
+.custom-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        /* Optional: Adjust icon size and margin */
+        .custom-list li {
+            margin-bottom: 10px;
+        }
+        .custom-list i {
+            font-size: 24px; /* Adjust icon size as needed */
+            margin-right: 10px; /* Adjust margin between icon and text */
+			color:light;
+        }
+		.box {
+  width: 200px;
+  height: 200px;
+  background-color: blue;
+  color: white;
+  text-align: center;
+  line-height: 200px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.box:hover {
+  background-color: darkblue;
+}

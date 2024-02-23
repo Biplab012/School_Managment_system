@@ -1,0 +1,63 @@
+----Postgress ----
+ select current_user
+SELECT * FROM pg_user WHERE usename = 'postgres';
+select version()
+DEFAULT PORT FOR POSTGRESS DATA IS 5432
+
+Spring security
+LDAP (Lightweight Directory Access Protocol)
+JAAS (Java Authentication and Authorization Service) LoginModule
+Remember-me
+Web flow Authentication
+Authorization
+Single sign on
+
+1)BCryptPasswordEncoder will be required to encode our password values in other classes.
+@EnableWebSecurity, @Configuration, @Bean, @GetMapping, @Autowired, @Data, @Entity, @Table, @Id,
+ @GeneratedValue, @Column, @ElementCollection, @CollectionTable, @JoinColumn, @Service
+package com.example.securingweb;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.SecurityFilterChain;
+
+@Configuration
+@EnableWebSecurity
+public class WebSecurityConfig {
+
+	@Bean
+	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+		http
+			.authorizeHttpRequests((requests) -> requests
+				.requestMatchers("/", "/home").permitAll()
+				.anyRequest().authenticated()
+			)
+			.formLogin((form) -> form
+				.loginPage("/login")
+				.permitAll()
+			)
+			.logout((logout) -> logout.permitAll());
+
+		return http.build();
+	}
+
+	@Bean
+	public UserDetailsService userDetailsService() {
+		UserDetails user =
+			 User.withDefaultPasswordEncoder()
+				.username("user")
+				.password("password")
+				.roles("USER")
+				.build();
+
+		return new InMemoryUserDetailsManager(user);
+	}
+}
+
+ 

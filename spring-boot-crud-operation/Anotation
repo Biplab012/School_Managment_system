@@ -1,0 +1,13 @@
+1)ViewControllerRegistry:ViewControllerRegistry allows to create simple automated controllers pre-configured with status 
+code and/or a view.
+@Configuration
+public class AppConfig implements WebMvcConfigurer {
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/hello").setViewName("hello");
+    }
+}
+
+2)@Configuration: annotation which indicates that the class has @Bean definition methods. 
+3)@Bean:@Bean annotation which is applied on a method to specify that it returns a bean to be managed by Spring context
